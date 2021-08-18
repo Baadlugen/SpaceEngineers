@@ -25,12 +25,12 @@
         //Change                       Remote to your Remote controller name. OR change your Remote controller name to = Remote.
         string RemoteControllerName = "Remote";
         string TextPanelName = "MyAutoScreen";
-        #endregion;
+#endregion;
 
 
 
 
-        #region No touch!
+#region No touch!
         private List<IMyGyro> Gyros = new List<IMyGyro>();
         private IMyRemoteControl RemoteControl;
         private List<IMyLandingGear> LandingGear = new List<IMyLandingGear>();
@@ -173,5 +173,5 @@
         {
             return Math.Atan2(rotation, Math.Sqrt(Math.Max(0.0, 1.0 - rotation * rotation)));
         }
-        #endregion
+#endregion
     
