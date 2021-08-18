@@ -64,16 +64,8 @@
         {
             var ShipRotation = GetRotation();
             var ShipAngel = GetShipAngel(ShipRotation.Length());
-            switch (argument)
-            {
-                case "AutoLand":
-                    StearShip(ShipAngel, ShipRotation);
-                    DamperOverride();
-                    break;
-                case "Program2":
-                    //TODO activate programmable block 2, release the hounds
-                    break;
-            }
+            StearShip(ShipAngel, ShipRotation);
+            DamperOverride();
         }
 
         /// <summary>
