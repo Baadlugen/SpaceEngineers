@@ -56,7 +56,7 @@
             }
         }
 
-        int counter = 0;
+        int counter = 200;
         public void Main(string argument)
         {
 
@@ -87,13 +87,12 @@
                     break;
                 case Mode.Idle:
                     Log($"Laucnhing in {counter.ToString()} sec" ,true);
-                    if (counter > 200)
+                    if (counter == 0)
                     {
-                       
+                        counter = 200;
                         CurrentMode = Mode.FirstStart;
-                       counter = 0;
                     }
-                    counter++;
+                    counter--;
                     break;
 
             }
