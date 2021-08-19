@@ -86,11 +86,12 @@
                     CurrentMode = SetAutoPilot();
                     break;
                 case Mode.Idle:
-                    Echo(counter.ToString());
+                    Log($"Laucnhing in {counter.ToString()} sec" ,true);
                     if (counter > 200)
                     {
-                        counter = 0;
+                       
                         CurrentMode = Mode.FirstStart;
+                       counter = 0;
                     }
                     counter++;
                     break;
@@ -120,7 +121,11 @@
             List<MyWaypointInfo> Waypoints = new List<MyWaypointInfo>();
             MyWaypointInfo CurrentWayPoint = RemoteControl.CurrentWaypoint;
             RemoteControl.GetWaypointInfo(Waypoints);
-            if (CurrentWayPoint.Name == Waypoints.Last().Name)
+            if (CurrentWayPoint.Name == Waypoints.Last().Name && Waypoints.Count > 2)
+            {
+                return Mode.ReverseGps;
+            }
+            else if(Waypoints.Count == 2 && CurrentWayPoint.Name == Waypoints.First().Name)
             {
                 return Mode.ReverseGps;
             }
